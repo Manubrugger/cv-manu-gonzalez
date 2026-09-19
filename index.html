@@ -55,15 +55,15 @@ nav.main a:hover{color:var(--colors-accent);background:rgba(14,16,51,.07)}
 .menu-btn{display:none;margin-left:auto;background:var(--colors-primary);color:var(--colors-bg);border:0;border-radius:var(--r-sm);padding:10px 16px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer}
 /* ---------- hero ---------- */
 .hero{background:var(--colors-primary);color:var(--colors-neutral);position:relative;overflow:hidden}
-.hero .wrap{display:grid;gap:24px;padding-top:28px;padding-bottom:28px;align-items:center;position:relative;z-index:1}
-@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr .9fr;padding-top:48px;padding-bottom:48px}}
-.hero h1{font-size:var(--fs-display-medium);line-height:var(--lh-tight);margin:0;letter-spacing:-.01em;color:var(--colors-neutral)}
+.hero .wrap{display:grid;gap:20px;padding-top:40px;padding-bottom:40px;align-items:center;position:relative;z-index:1}
+@media(min-width:900px){.hero .wrap{grid-template-columns:.9fr 1.1fr;padding-top:72px;padding-bottom:72px}}
+.hero h1{font-size:var(--fs-display-large);line-height:var(--lh-tight);margin:0;letter-spacing:-.01em;color:var(--colors-neutral)}
 .hero h1 .hl{background:var(--colors-accent);color:var(--colors-primary);padding:0 12px;border-radius:var(--r-sm)}
 .role{font-size:var(--fs-headline);font-weight:500;margin:12px 0 0;color:var(--colors-neutral)}
 .photo{margin:0;display:flex;justify-content:center}
 .photo img{
   display:block;width:100%;max-width:320px;height:auto;
-  border-radius:var(--r-lg);border:2px solid var(--colors-neutral);
+  border-radius:var(--r-lg);border:3px solid var(--colors-accent);
   background:var(--colors-neutral);
 }
 /* ---------- marquee ---------- */
@@ -182,13 +182,13 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- HERO -->
   <section class="hero" id="inicio" aria-labelledby="t-hero">
     <div class="wrap">
+      <figure class="photo reveal" style="margin:0">
+        <img src="assets/imagenes/perfil.jpg" alt="Fotografía de Manú González" fetchpriority="high">
+      </figure>
       <div class="reveal">
         <h1 id="t-hero">Manú <span class="hl">González</span></h1>
         <p class="role">Diseño Gráfico</p>
       </div>
-      <figure class="photo reveal" style="margin:0">
-        <img src="assets/imagenes/perfil.jpg" alt="Fotografía de Manú González" fetchpriority="high">
-      </figure>
     </div>
   </section>
 
