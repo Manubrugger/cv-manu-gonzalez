@@ -67,8 +67,8 @@ nav.main a:hover{color:var(--colors-accent);background:rgba(14,16,51,.07)}
   background:var(--colors-neutral);
 }
 /* ---------- marquee ---------- */
-.marquee{background:var(--colors-accent);color:var(--colors-bg);overflow:hidden;width:100vw;margin-left:calc(50% - 50vw);padding:clamp(16px,3vw,32px) 0}
-.marquee-track{display:inline-flex;white-space:nowrap;font-size:clamp(72px,12vw,120px);font-weight:700;line-height:1.15;will-change:transform}
+.marquee{background:var(--colors-accent);color:var(--colors-bg);overflow:hidden;width:100vw;margin-left:calc(50% - 50vw);padding:clamp(8px,2vw,16px) 0}
+.marquee-track{display:inline-flex;width:max-content;white-space:nowrap;font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.15;will-change:transform}
 .marquee-track span{padding-right:48px}
 /* ---------- sections ---------- */
 .block{padding:48px 0}
@@ -195,8 +195,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- MARQUESINA -->
   <div class="marquee" role="img" aria-label="Texto decorativo en movimiento: Sobre mí repetido">
     <div class="marquee-track" id="marqueeTrack" aria-hidden="true">
-      <span>SOBRE MÍ · SOBRE MÍ · SOBRE MÍ · SOBRE MÍ ·&nbsp;</span>
-      <span>SOBRE MÍ · SOBRE MÍ · SOBRE MÍ · SOBRE MÍ ·&nbsp;</span>
+      <span>SOBRE MÍ ·&nbsp;</span>
     </div>
   </div>
 
@@ -397,11 +396,13 @@ footer p{margin:0;font-size:var(--fs-small)}
   function onScroll(){
     if(!ticking){
       window.requestAnimationFrame(function(){
-        /* marquesina */
+        /* marquesina: una sola pasada de derecha a izquierda ligada al scroll */
         if(!reduced){
           var r = mq.getBoundingClientRect();
           var mp = Math.min(1, Math.max(0, (window.innerHeight - r.top) / (window.innerHeight + r.height)));
-          track.style.transform = "translateX(" + (-mp * 18).toFixed(2) + "%)";
+          var tw = track.scrollWidth || 1;
+          var mx = (1 - mp) * window.innerWidth - mp * tw;
+          track.style.transform = "translateX(" + mx.toFixed(1) + "px)";
         }
         /* galería fijada */
         if(pinOK){
