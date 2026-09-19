@@ -36,7 +36,7 @@ El aspecto visual sigue las reglas de `DESIGN.md` (única fuente de verdad del d
 - Sin exceso de texto ni botones: presentación rápida y visual.
 - Desktop: texto y foto **lado a lado**. Celular: **uno arriba del otro**.
 
-> REVISAR: falta el archivo de la foto en `assets/`. Se usará un placeholder accesible hasta recibirla.
+> Foto: `assets/imagenes/perfil.jpg` (máx. 300px de alto en página, compacta).
 
 ---
 
