@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manú González — Diseño Gráfico</title>
+<meta name="description" content="Portafolio de Manú González: diseño gráfico, proyectos, educación, habilidades y contacto.">
+<style>
+@font-face{
+  font-family:"AsapSharp";
+  src:url("assets/fonts/AsapSharp-VariableFont.woff2") format("woff2");
+  font-weight:100 900;font-style:normal;font-display:swap;
+}
+/* Variables derivadas de los tokens de DESIGN.md */
+:root{
+  --colors-primary:#0E1033;
+  --colors-secondary:#D5DE24;
+  --colors-accent:#ED2B5F;
+  --colors-neutral:#D6D6D6;
+  --colors-bg:#F4F4F4; /* blanco roto, no puro */
+  --font:"AsapSharp",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs-display-large:clamp(72px,8vw,120px);
+  --fs-display-medium:clamp(56px,6vw,72px);
+  --fs-display-small:clamp(40px,5vw,56px);
+  --fs-headline:clamp(24px,3vw,32px);
+  --fs-body:clamp(18px,2vw,20px);
+  --fs-small:clamp(14px,1.5vw,16px);
+  --lh-tight:1.1;--lh-normal:1.5;--lh-relaxed:1.7;
+  --r-sm:8px;--r-md:16px;--r-lg:24px;--r-pill:9999px;
+  --maxw:1400px;
+  --header-h:68px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);font-size:var(--fs-body);
+  line-height:var(--lh-normal);color:var(--colors-primary);
+  background:var(--colors-bg);
+}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--colors-primary);color:var(--colors-bg);padding:12px 20px;z-index:200;border-radius:0 0 8px 0;font-weight:700}
+.skip-link:focus{left:0}
+:focus-visible{outline:3px solid var(--colors-accent);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+section{scroll-margin-top:calc(var(--header-h) + 12px)}
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:100;background:rgba(244,244,244,.97);border-bottom:2px solid var(--colors-primary)}
+.nav-inner{display:flex;align-items:center;gap:16px;min-height:var(--header-h)}
+.brand{font-weight:700;font-size:20px;text-decoration:none;color:var(--colors-primary)}
+.brand b{color:var(--colors-primary)}
+nav.main{margin-left:auto}
+nav.main ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav.main a{display:inline-block;padding:8px 12px;border-radius:var(--r-sm);text-decoration:none;font-weight:500;color:var(--colors-primary);transition:color 150ms ease,background 150ms ease}
+nav.main a:visited{color:var(--colors-primary)}
+nav.main a:hover{color:var(--colors-accent);background:rgba(14,16,51,.07)}
+.menu-btn{display:none;margin-left:auto;background:var(--colors-primary);color:var(--colors-bg);border:0;border-radius:var(--r-sm);padding:10px 16px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer}
+/* ---------- hero ---------- */
+.hero{background:var(--colors-primary);color:var(--colors-neutral);position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:24px;padding-top:36px;padding-bottom:36px;align-items:center;position:relative;z-index:1}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr .9fr;padding-top:60px;padding-bottom:60px}}
+.hero h1{font-size:var(--fs-display-medium);line-height:var(--lh-tight);margin:0;letter-spacing:-.01em;color:var(--colors-neutral)}
+.hero h1 .hl{background:var(--colors-accent);color:var(--colors-primary);padding:0 12px;border-radius:var(--r-sm)}
+.role{font-size:var(--fs-headline);font-weight:500;margin:12px 0 0;color:var(--colors-neutral)}
+.photo{
+  aspect-ratio:4/5;max-height:400px;width:100%;border-radius:var(--r-lg);
+  background:var(--colors-neutral);color:var(--colors-primary);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  border:2px solid var(--colors-neutral);
+}
+.photo .initials{font-size:var(--fs-display-large);font-weight:700;color:var(--colors-accent);line-height:1}
+.photo small{font-size:var(--fs-small)}
+/* ---------- marquee ---------- */
+.marquee{background:var(--colors-accent);color:var(--colors-bg);overflow:hidden;width:100vw;margin-left:calc(50% - 50vw);padding:clamp(16px,3vw,32px) 0}
+.marquee-track{display:inline-flex;white-space:nowrap;font-size:clamp(72px,12vw,120px);font-weight:700;line-height:1.15;will-change:transform}
+.marquee-track span{padding-right:48px}
+/* ---------- sections ---------- */
+.block{padding:48px 0}
+@media(min-width:900px){.block{padding:64px 0}}
+#sobre-mi.block{padding-bottom:28px}
+#educacion.block{padding-top:28px}
+h2{font-size:var(--fs-display-small);line-height:var(--lh-tight);margin:0 0 12px}
+.lead{max-width:62ch;margin:0 0 28px}
+#sobre-mi p.bio{font-size:var(--fs-body);line-height:var(--lh-relaxed);max-width:62ch}
+/* educación */
+.edu-grid{display:grid;gap:16px}
+@media(min-width:760px){.edu-grid{grid-template-columns:1fr 1fr}}
+.edu-card{background:var(--colors-bg);border:2px solid var(--colors-primary);border-radius:var(--r-md);padding:20px 22px;transition:transform 200ms ease,box-shadow 200ms ease}
+.edu-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(14,16,51,.12)}
+.edu-card h3{margin:0 0 4px;font-size:var(--fs-headline)}
+.edu-card .inst{font-weight:700}
+.edu-card .dates{display:inline-block;margin:10px 0;background:var(--colors-primary);color:var(--colors-neutral);border-radius:var(--r-pill);padding:4px 14px;font-size:var(--fs-small);font-weight:700}
+.edu-card p{margin:8px 0 0}
+/* proyectos */
+#proyectos{background:var(--colors-primary);color:var(--colors-neutral);width:100vw;margin-left:calc(50% - 50vw)}
+#proyectos .wrap{max-width:var(--maxw)}
+#proyectos h2{color:var(--colors-bg)}
+#proyectos .eyebrow{background:var(--colors-secondary)}
+.hwrap{height:300vh;position:relative}
+.hsticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.htrack{display:flex;gap:clamp(16px,3vw,48px);padding:8px clamp(16px,4vw,48px);will-change:transform;width:max-content;align-items:stretch}
+.proj{width:min(78vw,560px);flex:0 0 auto;background:var(--colors-bg);color:var(--colors-primary);border-radius:var(--r-md);overflow:hidden;border:2px solid var(--colors-bg);transition:transform 200ms ease}
+.proj:hover{transform:translateY(-4px)}
+.proj img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--colors-neutral)}
+.proj .pbody{padding:20px 22px}
+.proj h3{margin:0 0 2px;font-size:var(--fs-headline);line-height:1.2}
+.proj .ptype{font-size:var(--fs-small);font-weight:700;color:var(--colors-accent)}
+.proj p{margin:8px 0 0;font-size:var(--fs-body)}
+.gal-bar{display:flex;align-items:center;gap:16px;padding:0 clamp(16px,4vw,48px)}
+.gal-btn{background:var(--colors-secondary);color:var(--colors-primary);border:2px solid var(--colors-secondary);border-radius:var(--r-sm);font-family:inherit;font-weight:700;font-size:16px;padding:10px 18px;cursor:pointer;transition:transform 180ms ease}
+.gal-btn:hover{transform:translateY(-2px)}
+.gal-btn:disabled{opacity:.4;cursor:default;transform:none}
+.gal-count{font-weight:700;min-width:110px;text-align:center}
+.gal-progress{flex:1;height:8px;background:rgba(244,244,244,.25);border-radius:var(--r-pill);overflow:hidden}
+.gal-progress i{display:block;height:100%;width:0;background:var(--colors-secondary);border-radius:var(--r-pill)}
+/* habilidades */
+.hab-grid{display:grid;gap:32px}
+@media(min-width:900px){.hab-grid{grid-template-columns:1fr 1fr}}
+.skill{border-bottom:1px solid rgba(14,16,51,.2);padding:14px 0}
+.skill .srow{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.skill strong{font-size:20px}
+.dots{display:inline-flex;gap:8px}
+.dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--colors-primary)}
+.dot.full{background:var(--colors-secondary)}
+.dot.empty{background:transparent}
+.soft{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.soft li{font-size:20px;font-weight:700;line-height:1.3;padding:10px 0;border-bottom:1px solid rgba(14,16,51,.2)}
+/* contacto */
+#contacto{background:var(--colors-primary);color:var(--colors-neutral);width:100vw;margin-left:calc(50% - 50vw)}
+#contacto h2{color:var(--colors-bg)}
+#contacto .lead{color:var(--colors-neutral)}
+.btn{display:inline-block;font-family:inherit;font-weight:700;font-size:18px;padding:14px 28px;border-radius:var(--r-md);cursor:pointer;text-decoration:none;border:2px solid transparent;transition:background 180ms ease,color 180ms ease,transform 180ms ease}
+.btn-mail{background:var(--colors-secondary);color:var(--colors-primary)}
+.btn-mail:hover{background:var(--colors-bg);transform:translateY(-2px) scale(1.02)}
+.btn-li{background:transparent;border-color:var(--colors-neutral);color:var(--colors-neutral)}
+.btn-li:hover{background:var(--colors-secondary);border-color:var(--colors-secondary);color:var(--colors-primary)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap}
+footer{border-top:2px solid var(--colors-primary)}
+footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+footer p{margin:0;font-size:var(--fs-small)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+/* ---------- responsive / motion ---------- */
+@media(max-width:760px){
+  .menu-btn{display:inline-block}
+  nav.main{display:none;width:100%}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column;padding:8px 0 16px}
+  .hwrap{height:auto}
+  .hsticky{position:static;height:auto;display:block}
+  .htrack{overflow-x:auto;width:auto;scroll-snap-type:x mandatory;padding-bottom:16px}
+  .proj{scroll-snap-align:center}
+  .gal-bar{padding-bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .reveal{opacity:1;transform:none}
+  .hwrap{height:auto}
+  .hsticky{position:static;height:auto;display:block}
+  .htrack{overflow-x:auto;width:auto;transform:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#inicio" aria-label="Manú González — inicio"><b>MG</b> · Manú González</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menú</button>
+    <nav class="main" id="mainNav" aria-label="Secciones principales">
+      <ul>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#educacion">Educación</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-labelledby="t-hero">
+    <div class="wrap">
+      <div class="reveal">
+        <h1 id="t-hero">Manú <span class="hl">González</span></h1>
+        <p class="role">Diseño Gráfico</p>
+      </div>
+      <figure class="photo reveal" role="img" aria-label="Fotografía de Manú González (pendiente de añadir)" style="margin:0">
+        <span class="initials" aria-hidden="true">MG</span>
+        <small>Foto pendiente</small>
+      </figure>
+    </div>
+  </section>
+
+  <!-- MARQUESINA -->
+  <div class="marquee" role="img" aria-label="Texto decorativo en movimiento: Sobre mí repetido">
+    <div class="marquee-track" id="marqueeTrack" aria-hidden="true">
+      <span>SOBRE MÍ · SOBRE MÍ · SOBRE MÍ · SOBRE MÍ ·&nbsp;</span>
+      <span>SOBRE MÍ · SOBRE MÍ · SOBRE MÍ · SOBRE MÍ ·&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- SOBRE MÍ -->
+  <section class="block" id="sobre-mi" aria-labelledby="t-sobre">
+    <div class="wrap reveal">
+      <h2 id="t-sobre">Diseño con propósito</h2>
+      <p class="bio">Creo en el poder del diseño gráfico como una herramienta para generar soluciones creativas, explorar nuevos límites y aportar nuevas perspectivas a cada proyecto. Mi objetivo es transformar ideas en imágenes memorables y funcionales, buscando siempre un equilibrio entre estética y significado.</p>
+    </div>
+  </section>
+
+  <!-- EDUCACIÓN -->
+  <section class="block" id="educacion" aria-labelledby="t-edu">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 id="t-edu">Formación</h2>
+      </div>
+      <div class="edu-grid">
+        <article class="edu-card reveal">
+          <h3>Diseño Gráfico Digital</h3>
+          <p class="inst">Universidad La Salle</p>
+          <span class="dates">2023–2027</span>
+        </article>
+        <article class="edu-card reveal">
+          <h3>Graphic Design Course</h3>
+          <p class="inst">EduMac Digital Arts School</p>
+          <span class="dates">2023</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" aria-labelledby="t-proy">
+    <div class="wrap block reveal" style="padding-bottom:0">
+      <h2 id="t-proy" style="color:var(--colors-accent)">Galería de proyectos</h2>
+    </div>
+    <div class="hwrap" id="hwrap">
+      <div class="hsticky" id="hsticky">
+        <div class="htrack" id="htrack">
+          <article class="proj">
+            <img src="assets/imagenes/drpepper.png" alt="Mockup del proyecto de diseño de empaque para Dr Pepper" loading="lazy">
+            <div class="pbody"><p class="ptype">Diseño de empaque</p><h3>Dr Pepper</h3><p>Proyecto de diseño de empaque para Dr Pepper.</p></div>
+          </article>
+          <article class="proj">
+            <img src="assets/imagenes/feria.png" alt="Identidad visual creada para la Feria del Libro de Aguascalientes" loading="lazy">
+            <div class="pbody"><p class="ptype">Branding</p><h3>Feria del Libro de Aguascalientes</h3><p>Proyecto de creación de identidad visual para la Feria del Libro de Aguascalientes.</p></div>
+          </article>
+          <article class="proj">
+            <img src="assets/imagenes/qantas.png" alt="Propuesta de rediseño de la identidad visual de la aerolínea Qantas" loading="lazy">
+            <div class="pbody"><p class="ptype">Rediseño de identidad visual</p><h3>Qantas</h3><p>Proyecto de rediseño de la identidad visual de la aerolínea Qantas.</p></div>
+          </article>
+          <article class="proj">
+            <img src="assets/imagenes/salsas.png" alt="Diseño de etiquetas para la línea de salsas para pasta Antica" loading="lazy">
+            <div class="pbody"><p class="ptype">Diseño de etiquetas</p><h3>Antica</h3><p>Diseño de etiquetas para una línea de salsas para pasta llamada Antica.</p></div>
+          </article>
+          <article class="proj">
+            <img src="assets/imagenes/olab.png" alt="Proyecto de rediseño para el laboratorio Olab" loading="lazy">
+            <div class="pbody"><p class="ptype">Rediseño</p><h3>Olab</h3><p>Proyecto de rediseño para el laboratorio Olab.</p></div>
+          </article>
+        </div>
+        <div class="gal-bar">
+          <button class="gal-btn" id="galPrev" type="button" aria-label="Proyecto anterior">← Anterior</button>
+          <span class="gal-count" id="galCount" aria-live="polite">1 de 5</span>
+          <div class="gal-progress" aria-hidden="true"><i id="galProg"></i></div>
+          <button class="gal-btn" id="galNext" type="button" aria-label="Proyecto siguiente">Siguiente →</button>
+        </div>
+      </div>
+    </div>
+    <div class="wrap" style="height:48px"></div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="block" id="habilidades" aria-labelledby="t-hab">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 id="t-hab">Programas y soft skills</h2>
+      </div>
+      <div class="hab-grid">
+        <div class="reveal">
+          <h3>Programas</h3>
+          <div class="skill"><div class="srow"><strong>Adobe Illustrator</strong><span class="dots" role="img" aria-label="Adobe Illustrator: 5 de 5"><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i></span></div></div>
+          <div class="skill"><div class="srow"><strong>Adobe Photoshop</strong><span class="dots" role="img" aria-label="Adobe Photoshop: 4 de 5"><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot empty"></i></span></div></div>
+          <div class="skill"><div class="srow"><strong>Adobe InDesign</strong><span class="dots" role="img" aria-label="Adobe InDesign: 4 de 5"><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot empty"></i></span></div></div>
+          <div class="skill"><div class="srow"><strong>Figma</strong><span class="dots" role="img" aria-label="Figma: 3 de 5"><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot empty"></i><i class="dot empty"></i></span></div></div>
+          <div class="skill"><div class="srow"><strong>Adobe After Effects</strong><span class="dots" role="img" aria-label="Adobe After Effects: 3 de 5"><i class="dot full"></i><i class="dot full"></i><i class="dot full"></i><i class="dot empty"></i><i class="dot empty"></i></span></div></div>
+        </div>
+        <div class="reveal">
+          <h3>Soft Skills</h3>
+          <ul class="soft">
+            <li>Aprendizaje continuo</li>
+            <li>Trabajo en equipo</li>
+            <li>Atención al detalle</li>
+            <li>Pensamiento innovador</li>
+            <li>Capacidad para recibir y aplicar feedback</li>
+            <li>Adaptabilidad</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="block" id="contacto" aria-labelledby="t-contact">
+    <div class="wrap reveal">
+      <h2 id="t-contact">Cuéntame tu idea</h2>
+      <p class="lead">Escríbeme por correo o encuéntrame en LinkedIn.</p>
+      <div class="btn-row">
+        <a class="btn btn-mail" href="mailto:manuglezb@yahoo.com">manuglezb@yahoo.com</a>
+        <a class="btn btn-li" href="https://www.linkedin.com/in/man%C3%BA-gonz%C3%A1lez-30b43a216/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Manú González</strong> · Diseño Gráfico</p>
+    <p>Diseño según DESIGN.md · Contenido según CV.md</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var pinOK = window.matchMedia("(min-width: 761px)").matches && !reduced;
+
+  /* 1. Menú móvil */
+  var btn = document.getElementById("menuBtn");
+  var nav = document.getElementById("mainNav");
+  btn.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ nav.classList.remove("open"); btn.setAttribute("aria-expanded","false"); });
+  });
+
+  /* 2. Aparición suave al hacer scroll */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  /* 3. Marquesina ligada al scroll (estática si movimiento reducido) */
+  var mq = document.querySelector(".marquee");
+  var track = document.getElementById("marqueeTrack");
+
+  /* 4. Galería horizontal */
+  var hwrap = document.getElementById("hwrap");
+  var htrack = document.getElementById("htrack");
+  var prev = document.getElementById("galPrev");
+  var next = document.getElementById("galNext");
+  var count = document.getElementById("galCount");
+  var prog = document.getElementById("galProg");
+  var N = htrack.querySelectorAll(".proj").length;
+
+  function galleryProgress(){
+    if(pinOK){
+      var top = hwrap.getBoundingClientRect().top;
+      var range = hwrap.offsetHeight - window.innerHeight;
+      return Math.min(1, Math.max(0, -top / range));
+    }
+    var max = htrack.scrollWidth - htrack.clientWidth;
+    return max > 0 ? htrack.scrollLeft / max : 0;
+  }
+  function render(p){
+    var idx = Math.round(p * (N - 1)) + 1;
+    count.textContent = idx + " de " + N;
+    prog.style.width = (p * 100).toFixed(1) + "%";
+    prev.disabled = p <= 0.01;
+    next.disabled = p >= 0.99;
+  }
+  function goTo(i){
+    i = Math.min(N - 1, Math.max(0, i));
+    if(pinOK){
+      var top = hwrap.getBoundingClientRect().top + window.scrollY;
+      var range = hwrap.offsetHeight - window.innerHeight;
+      window.scrollTo({top: top + (i / (N - 1)) * range, behavior: reduced ? "auto" : "smooth"});
+    } else {
+      var card = htrack.querySelectorAll(".proj")[i];
+      htrack.scrollTo({left: card.offsetLeft - 24, behavior: reduced ? "auto" : "smooth"});
+    }
+  }
+  prev.addEventListener("click", function(){
+    var cur = Math.round(galleryProgress() * (N - 1));
+    goTo(cur - 1);
+  });
+  next.addEventListener("click", function(){
+    var cur = Math.round(galleryProgress() * (N - 1));
+    goTo(cur + 1);
+  });
+  htrack.addEventListener("scroll", function(){ if(!pinOK) render(galleryProgress()); }, {passive:true});
+
+  /* 5. Bucle de scroll con rAF */
+  var ticking = false;
+  function onScroll(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){
+        /* marquesina */
+        if(!reduced){
+          var r = mq.getBoundingClientRect();
+          var mp = Math.min(1, Math.max(0, (window.innerHeight - r.top) / (window.innerHeight + r.height)));
+          track.style.transform = "translateX(" + (-mp * 18).toFixed(2) + "%)";
+        }
+        /* galería fijada */
+        if(pinOK){
+          var p = galleryProgress();
+          var max = htrack.scrollWidth - document.getElementById("hsticky").clientWidth;
+          htrack.style.transform = "translateX(" + (-p * Math.max(0,max)).toFixed(1) + "px)";
+          render(p);
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", function(){
+    pinOK = window.matchMedia("(min-width: 761px)").matches && !reduced;
+    if(!pinOK){ htrack.style.transform = ""; }
+    onScroll();
+  });
+  render(0);
+  onScroll();
+})();
+</script>
+</body>
+</html>

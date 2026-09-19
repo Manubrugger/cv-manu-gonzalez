@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de diseño — Referencia visual</title>
+<meta name="description" content="Página de referencia visual del sistema de diseño: colores, tipografía, espaciado, formas y componentes según DESIGN.md.">
+<style>
+@font-face{
+  font-family:"AsapSharp";
+  src:url("assets/fonts/AsapSharp-VariableFont.woff2") format("woff2");
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --colors-primary:#0E1033;
+  --colors-secondary:#D5DE24;
+  --colors-accent:#ED2B5F;
+  --colors-neutral:#D6D6D6;
+  --colors-white:#F4F4F4;
+  --typography-font:"AsapSharp",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --scale-display-large:clamp(72px,8vw,120px);
+  --scale-display-medium:clamp(56px,6vw,72px);
+  --scale-display-small:clamp(40px,5vw,56px);
+  --scale-headline-medium:clamp(24px,3vw,32px);
+  --scale-body-large:clamp(18px,2vw,20px);
+  --scale-body-small:clamp(14px,1.5vw,16px);
+  --lh-tight:1.1;
+  --lh-normal:1.5;
+  --lh-relaxed:1.7;
+  --rounded-none:0;
+  --rounded-sm:8px;
+  --rounded-md:16px;
+  --rounded-lg:24px;
+  --rounded-pill:9999px;
+  --max-width:1400px;
+  --section-gap:64px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+body{
+  margin:0;
+  font-family:var(--typography-font);
+  font-size:var(--scale-body-large);
+  line-height:var(--lh-normal);
+  color:var(--colors-primary);
+  background:var(--colors-white);
+}
+.skip-link{
+  position:absolute;left:-9999px;top:0;
+  background:var(--colors-primary);color:var(--colors-white);
+  padding:12px 20px;z-index:100;border-radius:0 0 8px 0;
+}
+.skip-link:focus{left:0}
+a{color:var(--colors-primary)}
+:focus-visible{outline:3px solid var(--colors-accent);outline-offset:3px}
+.wrap{max-width:var(--max-width);margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.96);
+  border-bottom:2px solid var(--colors-primary);
+}
+.nav-inner{display:flex;align-items:center;gap:24px;min-height:64px}
+.brand{font-weight:700;text-decoration:none;font-size:20px;letter-spacing:.02em}
+.brand span{color:var(--colors-accent)}
+nav.main{margin-left:auto}
+nav.main ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav.main a{
+  display:inline-block;padding:8px 12px;border-radius:var(--rounded-sm);
+  text-decoration:none;font-weight:500;transition:color 150ms ease,background 150ms ease;
+}
+nav.main a:hover{color:var(--colors-accent);background:rgba(14,16,51,.06)}
+.menu-btn{display:none;margin-left:auto;background:var(--colors-primary);color:#fff;border:0;border-radius:8px;padding:10px 14px;font-family:inherit;font-weight:700;cursor:pointer}
+.hero{background:var(--colors-primary);color:var(--colors-neutral)}
+.hero .wrap{padding-top:64px;padding-bottom:64px}
+.hero h1{
+  font-size:var(--scale-display-medium);line-height:var(--lh-tight);
+  margin:0 0 16px;color:var(--colors-white);letter-spacing:-.01em;
+}
+.hero h1 em{font-style:normal;color:var(--colors-secondary)}
+.hero p{max-width:62ch}
+.hero .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+main section{padding:48px 0;border-bottom:1px solid rgba(14,16,51,.14)}
+@media(min-width:900px){main section{padding:var(--section-gap) 0}}
+.eyebrow{
+  display:inline-block;font-size:var(--scale-body-small);font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;
+  background:var(--colors-secondary);color:var(--colors-primary);
+  padding:4px 12px;border-radius:var(--rounded-pill);margin-bottom:16px;
+}
+h2{font-size:var(--scale-display-small);line-height:var(--lh-tight);margin:0 0 8px}
+.lead{max-width:68ch;margin:0 0 32px}
+code{background:rgba(14,16,51,.08);padding:2px 6px;border-radius:6px;font-size:.85em}
+.dark-note{background:var(--colors-primary);color:var(--colors-neutral);border-radius:var(--rounded-md)}
+/* colors */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.swatch{border:2px solid var(--colors-primary);border-radius:var(--rounded-md);overflow:hidden;background:#fff}
+.swatch .chip{height:120px}
+.swatch .body{padding:16px}
+.swatch h3{margin:0 0 4px;font-size:20px}
+.swatch p{font-size:var(--scale-body-small);margin:8px 0}
+.hex-row{display:flex;align-items:center;gap:8px;margin-top:12px}
+.hex{font-weight:700}
+.copy-btn{border:2px solid var(--colors-primary);background:#fff;color:var(--colors-primary);border-radius:var(--rounded-sm);padding:4px 10px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.copy-btn:hover{background:var(--colors-secondary)}
+.badge{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:var(--rounded-pill);background:rgba(14,16,51,.08)}
+.contrast{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.contrast .pair{border-radius:var(--rounded-md);padding:20px;font-weight:500}
+.pair small{display:block;font-weight:400;font-size:14px;margin-top:8px}
+/* type */
+.type-row{border:2px solid var(--colors-primary);border-radius:var(--rounded-md);padding:24px;margin-bottom:20px;background:#fff}
+.type-row .token{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.type-row .value{font-size:14px;color:#333}
+.t-display-large{font-size:var(--scale-display-large);line-height:var(--lh-tight);font-weight:700;margin:8px 0}
+.t-display-medium{font-size:var(--scale-display-medium);line-height:var(--lh-tight);font-weight:700;margin:8px 0}
+.t-display-small{font-size:var(--scale-display-small);line-height:var(--lh-tight);font-weight:700;margin:8px 0}
+.t-headline{font-size:var(--scale-headline-medium);line-height:1.25;font-weight:700;margin:8px 0}
+.t-body{font-size:var(--scale-body-large);line-height:var(--lh-normal);margin:8px 0;max-width:62ch}
+.t-small{font-size:var(--scale-body-small);line-height:var(--lh-normal);margin:8px 0}
+/* spacing */
+.space-list{display:grid;gap:12px}
+.space-item{display:grid;grid-template-columns:90px 1fr;align-items:center;gap:16px}
+.space-item .bar{background:var(--colors-primary);height:20px;border-radius:4px}
+.space-item .bar.alt{background:var(--colors-accent)}
+/* shapes */
+.shape-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
+.shape{background:var(--colors-secondary);border:2px solid var(--colors-primary);height:110px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;font-weight:700}
+/* elevation */
+.elev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.elev{border:2px solid var(--colors-primary);border-radius:var(--rounded-md);padding:24px;background:#fff}
+.elev.hover-demo{transition:transform 200ms ease,box-shadow 200ms ease}
+.elev.hover-demo:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(14,16,51,.12)}
+/* components */
+.btn{
+  display:inline-block;font-family:inherit;font-weight:700;font-size:18px;
+  padding:14px 28px;border-radius:var(--rounded-md);cursor:pointer;text-decoration:none;
+  transition:background 180ms ease,color 180ms ease,transform 180ms ease;
+  border:2px solid transparent;
+}
+.btn-primary{background:var(--colors-primary);color:var(--colors-white)}
+.btn-primary:hover{background:var(--colors-secondary);color:var(--colors-primary);transform:translateY(-2px) scale(1.02)}
+.btn-secondary{background:transparent;border-color:var(--colors-primary);color:var(--colors-primary)}
+.btn-secondary:hover{background:var(--colors-secondary);border-color:var(--colors-secondary);color:var(--colors-primary)}
+.btn-tertiary{background:var(--colors-secondary);color:var(--colors-primary)}
+.btn-tertiary:hover{background:var(--colors-primary);color:var(--colors-white)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:24px}
+.card{border-radius:var(--rounded-md);padding:28px;border:2px solid var(--colors-primary);transition:transform 200ms ease,box-shadow 200ms ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(14,16,51,.12)}
+.card.on-light{background:var(--colors-white);color:var(--colors-primary)}
+.card.on-neutral{background:var(--colors-neutral);color:var(--colors-primary);border-color:var(--colors-primary)}
+.card.on-dark{background:var(--colors-primary);color:var(--colors-neutral);border-color:var(--colors-primary)}
+.card h3{margin-top:0}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.tag{border-radius:var(--rounded-pill);padding:4px 12px;font-size:var(--scale-body-small);font-weight:700;border:2px solid var(--colors-primary)}
+.tag.t-green{background:var(--colors-secondary);color:var(--colors-primary)}
+.tag.t-pink{background:var(--colors-accent);color:var(--colors-white);font-size:18px;padding:8px 18px}
+.tag.t-grey{background:var(--colors-neutral);color:var(--colors-primary)}
+.tag.t-navy{background:var(--colors-primary);color:var(--colors-neutral)}
+.marquee{
+  background:var(--colors-accent);color:var(--colors-white);
+  overflow:hidden;border-radius:0;margin-top:24px;
+  width:100vw;margin-left:calc(50% - 50vw);
+  padding:clamp(48px,8vw,96px) 0;
+}
+.marquee-track{display:inline-flex;white-space:nowrap;font-size:clamp(72px,12vw,120px);font-weight:700;line-height:1.15;padding:0;animation:scroll 30s linear infinite}
+.marquee span{padding-right:48px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.nav-demo{border:2px solid var(--colors-primary);border-radius:var(--rounded-md);padding:16px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:#fff}
+.nav-demo a{text-decoration:none;font-weight:500;padding:6px 10px;border-radius:6px}
+.nav-demo a:hover{color:var(--colors-accent)}
+.rules{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:900px){.rules{grid-template-columns:1fr 1fr}}
+.do,.dont{border-radius:var(--rounded-md);padding:28px}
+.do{background:#fff;border:2px solid var(--colors-primary)}
+.dont{background:var(--colors-primary);color:var(--colors-neutral)}
+.do ul,.dont ul{margin:0;padding-left:20px;display:grid;gap:10px}
+footer{background:var(--colors-primary);color:var(--colors-neutral)}
+footer .wrap{padding-top:48px;padding-bottom:48px}
+footer a{color:var(--colors-secondary)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:760px){
+  .menu-btn{display:inline-block}
+  nav.main{display:none;width:100%}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column;padding:12px 0}
+  main section{padding:40px 0}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Inicio — Sistema de diseño">SISTEMA<span>·</span>DISEÑO</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menú</button>
+    <nav class="main" id="mainNav" aria-label="Secciones del sistema">
+      <ul>
+        <li><a href="#colores">Colores</a></li>
+        <li><a href="#tipografia">Tipografía</a></li>
+        <li><a href="#espaciado">Espaciado</a></li>
+        <li><a href="#formas">Formas</a></li>
+        <li><a href="#componentes">Componentes</a></li>
+        <li><a href="#reglas">Reglas</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <h1>Amigable, confiable <em>y disruptiva.</em></h1>
+    <p>Referencia visual del sistema de diseño definido en <code>DESIGN.md</code>. Paleta de 4 colores + blanco, una sola familia tipográfica (AsapSharp), diseño plano y componentes con contraste seguro WCAG AA.</p>
+    <div class="meta" aria-label="Tokens base">
+      <span class="tag t-green">AsapSharp · Variable</span>
+      <span class="tag t-navy">Base 8px</span>
+      <span class="tag t-grey">Plano · sin sombras duras</span>
+    </div>
+  </div>
+</div>
+
+<main id="contenido">
+<div class="wrap">
+
+<section id="colores" aria-labelledby="t-colores" class="reveal">
+  <span class="eyebrow">01 · Colors</span>
+  <h2 id="t-colores">Paleta y rol de cada color</h2>
+  <p class="lead">Cuatro colores principales más blanco. El cuerpo de texto usa solo <code>#0E1033</code> sobre fondos claros y <code>#D6D6D6</code> sobre <code>#0E1033</code>. El rosa <code>#ED2B5F</code> (4.11:1 sobre blanco) no se usa para texto de lectura: solo decoración, bloques, títulos grandes, números e íconos.</p>
+  <div class="swatches">
+    <article class="swatch">
+      <div class="chip" style="background:#0E1033" role="img" aria-label="Muestra de color azul oscuro"></div>
+      <div class="body">
+        <span class="badge">colors.primary</span>
+        <h3>Azul oscuro</h3>
+        <div class="hex-row"><span class="hex">#0E1033</span><button class="copy-btn" data-copy="#0E1033">Copiar</button></div>
+        <p>Confianza y profesionalidad. Fondos oscuros, títulos, botones primarios y cuerpo de texto sobre fondos claros.</p>
+      </div>
+    </article>
+    <article class="swatch">
+      <div class="chip" style="background:#D5DE24" role="img" aria-label="Muestra de color verde lima"></div>
+      <div class="body">
+        <span class="badge">colors.secondary</span>
+        <h3>Verde lima</h3>
+        <div class="hex-row"><span class="hex">#D5DE24</span><button class="copy-btn" data-copy="#D5DE24">Copiar</button></div>
+        <p>Acento disruptivo. Botones, palabras clave, etiquetas y fondos. Texto sobre él siempre en <code>#0E1033</code> (12.5:1). Usar con moderación.</p>
+      </div>
+    </article>
+    <article class="swatch">
+      <div class="chip" style="background:#ED2B5F" role="img" aria-label="Muestra de color rosa"></div>
+      <div class="body">
+        <span class="badge">colors.accent</span>
+        <h3>Rosa</h3>
+        <div class="hex-row"><span class="hex">#ED2B5F</span><button class="copy-btn" data-copy="#ED2B5F">Copiar</button></div>
+        <p>Solo elementos gráficos grandes, hover y acentos. Prohibido en cuerpo, texto pequeño y párrafos (no alcanza 4.5:1).</p>
+      </div>
+    </article>
+    <article class="swatch">
+      <div class="chip" style="background:#D6D6D6" role="img" aria-label="Muestra de color gris claro"></div>
+      <div class="body">
+        <span class="badge">colors.neutral</span>
+        <h3>Gris claro</h3>
+        <div class="hex-row"><span class="hex">#D6D6D6</span><button class="copy-btn" data-copy="#D6D6D6">Copiar</button></div>
+        <p>Calma visual. Fondos secundarios, divisiones y texto sobre azul oscuro (12.7:1). Nunca párrafos sobre blanco.</p>
+      </div>
+    </article>
+    <article class="swatch">
+      <div class="chip" style="background:#F4F4F4;border-bottom:2px solid #0E1033" role="img" aria-label="Muestra de color blanco roto"></div>
+      <div class="body">
+        <span class="badge">colors.white</span>
+        <h3>Blanco roto</h3>
+        <div class="hex-row"><span class="hex">#F4F4F4</span><button class="copy-btn" data-copy="#F4F4F4">Copiar</button></div>
+        <p>Fondo de tarjetas y secciones claras. Texto sobre él en <code>#0E1033</code> (16.7:1).</p>
+      </div>
+    </article>
+  </div>
+  <h3 style="margin-top:40px">Combinaciones de texto seguras</h3>
+  <div class="contrast">
+    <div class="pair" style="background:#F4F4F4;color:#0E1033;border:2px solid #0E1033">#0E1033 sobre #F4F4F4<small>16.7:1 · ✅ cuerpo y títulos</small></div>
+    <div class="pair" style="background:#0E1033;color:#D6D6D6">#D6D6D6 sobre #0E1033<small>12.7:1 · ✅ cuerpo en oscuro</small></div>
+    <div class="pair" style="background:#D5DE24;color:#0E1033;border:2px solid #0E1033">#0E1033 sobre #D5DE24<small>12.5:1 · ✅ botones y etiquetas</small></div>
+    <div class="pair" style="background:#F4F4F4;color:#ED2B5F;border:2px dashed #ED2B5F">#ED2B5F sobre #F4F4F4<small>4.11:1 · ❌ no usar en lectura</small></div>
+  </div>
+</section>
+
+<section id="tipografia" aria-labelledby="t-tipo" class="reveal">
+  <span class="eyebrow">02 · Typography</span>
+  <h2 id="t-tipo">Una fuente: AsapSharp</h2>
+  <p class="lead">Variable font en <code>assets/fonts/AsapSharp-VariableFont.woff2</code>. Esta misma página la usa. Pesos <code>400 / 500 / 700</code>; interlineado <code>1.1 / 1.5 / 1.7</code>.</p>
+  <div class="type-row"><div class="token">displayLarge · clamp(72px, 8vw, 120px)</div><div class="value">Títulos hero / scroll “PROYECTOS”</div><p class="t-display-large">Diseño con personalidad</p></div>
+  <div class="type-row"><div class="token">displayMedium · clamp(56px, 6vw, 72px)</div><div class="value">H1</div><p class="t-display-medium">Portafolio creativo</p></div>
+  <div class="type-row"><div class="token">displaySmall · clamp(40px, 5vw, 56px)</div><div class="value">H2</div><p class="t-display-small">Proyectos destacados</p></div>
+  <div class="type-row"><div class="token">headlineMedium · clamp(24px, 3vw, 32px)</div><div class="value">H3</div><p class="t-headline">Experiencia y educación</p></div>
+  <div class="type-row"><div class="token">bodyLarge · clamp(18px, 2vw, 20px)</div><div class="value">Cuerpo principal · mínimo 18px</div><p class="t-body">La confianza se transmite con el azul oscuro, una estructura clara y textos fáciles de leer. El cuerpo solo usa #0E1033 sobre fondos claros o #D6D6D6 sobre #0E1033.</p></div>
+  <div class="type-row"><div class="token">bodySmall · clamp(14px, 1.5vw, 16px)</div><div class="value">Texto pequeño · etiquetas</div><p class="t-small">Etiquetas, metadatos y textos auxiliares. Nunca en rosa sobre blanco.</p></div>
+</section>
+
+<section id="espaciado" aria-labelledby="t-space" class="reveal">
+  <span class="eyebrow">03 · Layout &amp; Spacing</span>
+  <h2 id="t-space">Aire generoso, base 8px</h2>
+  <p class="lead">Escala <code>8 · 16 · 24 · 32 · 48 · 64 · 96 · 128</code>. Separación entre secciones <code>64px</code>, ancho máximo <code>1400px</code>, retícula de <code>12 columnas</code> en escritorio. Algunos títulos pueden romper la retícula.</p>
+  <div class="space-list" aria-label="Escala de espaciado">
+    <div class="space-item"><strong>8px</strong><div class="bar" style="width:8px"></div></div>
+    <div class="space-item"><strong>16px</strong><div class="bar" style="width:16px"></div></div>
+    <div class="space-item"><strong>24px</strong><div class="bar" style="width:24px"></div></div>
+    <div class="space-item"><strong>32px</strong><div class="bar" style="width:32px"></div></div>
+    <div class="space-item"><strong>48px</strong><div class="bar" style="width:48px"></div></div>
+    <div class="space-item"><strong>64px</strong><div class="bar alt" style="width:64px"></div></div>
+    <div class="space-item"><strong>96px</strong><div class="bar alt" style="width:96px"></div></div>
+    <div class="space-item"><strong>128px</strong><div class="bar alt" style="width:128px"></div></div>
+  </div>
+</section>
+
+<section id="formas" aria-labelledby="t-shape" class="reveal">
+  <span class="eyebrow">04 · Shapes &amp; Elevation</span>
+  <h2 id="t-shape">Formas simples, diseño plano</h2>
+  <p class="lead">Radios <code>0 · 8 · 16 · 24 · pill</code>. Contenedores rectos o <code>sm</code>; destacados <code>md/lg</code>; etiquetas en píldora. Profundidad con color y espacio; sombra ligera <code>0 8px 24px rgba(14,16,51,.12)</code> solo en hover.</p>
+  <div class="shape-grid">
+    <div class="shape" style="border-radius:0">none · 0</div>
+    <div class="shape" style="border-radius:8px">sm · 8px</div>
+    <div class="shape" style="border-radius:16px">md · 16px</div>
+    <div class="shape" style="border-radius:24px">lg · 24px</div>
+    <div class="shape" style="border-radius:9999px">pill</div>
+  </div>
+  <div class="elev-grid" style="margin-top:24px">
+    <div class="elev"><strong>Plana por defecto</strong><p class="t-small">Las tarjetas no llevan sombra en reposo.</p></div>
+    <div class="elev hover-demo"><strong>Hover: elevar</strong><p class="t-small">Pasa el cursor: <code>translateY(-4px)</code> + sombra ligera.</p></div>
+  </div>
+</section>
+
+<section id="componentes" aria-labelledby="t-comp" class="reveal">
+  <span class="eyebrow">05 · Components</span>
+  <h2 id="t-comp">Componentes</h2>
+  <p class="lead">Muestras interactivas con los tokens exactos: <code>components.button</code>, <code>components.card</code>, <code>components.tag</code>, <code>components.nav</code> y <code>components.scrollText</code>.</p>
+
+  <h3>Botones</h3>
+  <div class="btn-row">
+    <a class="btn btn-primary" href="#componentes">Botón principal</a>
+    <a class="btn btn-secondary" href="#componentes">Botón secundario</a>
+    <a class="btn btn-tertiary" href="#componentes">Botón terciario</a>
+  </div>
+  <p class="t-small">Primario: <code>#0E1033 / #F4F4F4</code> → hover <code>#D5DE24 / #0E1033</code>. Secundario: borde <code>#0E1033</code> → hover verde. Terciario: verde → hover azul. Sin rosa en texto pequeño.</p>
+
+  <h3>Tarjetas</h3>
+  <div class="cards">
+    <article class="card on-light"><h3>Proyecto · fondo claro</h3><p class="t-small">Tarjetas para proyectos, experiencia o educación. Fondo <code>colors.white</code> en secciones claras.</p><span class="tag t-green">Diseño</span></article>
+    <article class="card on-neutral"><h3>Experiencia · fondo gris</h3><p class="t-small">Fondo <code>colors.neutral</code> para secciones alternadas. Texto siempre en <code>#0E1033</code>.</p><span class="tag t-navy">2024 — hoy</span></article>
+    <article class="card on-dark"><h3>Educación · fondo azul</h3><p class="t-small">Fondo <code>colors.primary</code>. Texto en <code>#D6D6D6</code> (12.7:1).</p><span class="tag t-grey">Certificado</span></article>
+  </div>
+
+  <h3>Etiquetas</h3>
+  <div class="tags" aria-label="Ejemplos de etiquetas">
+    <span class="tag t-green">Habilidad · verde</span>
+    <span class="tag t-pink" aria-label="Etiqueta grande rosa (decorativa)">Rosa · solo grande</span>
+    <span class="tag t-grey">Categoría · gris</span>
+    <span class="tag t-navy">Programa · azul</span>
+  </div>
+
+  <h3>Navegación (demo)</h3>
+  <nav class="nav-demo" aria-label="Demostración de navegación"><a href="#top">Inicio</a><a href="#colores">Proyectos</a><a href="#tipografia">Sobre mí</a><a href="#reglas">Contacto</a></nav>
+  <p class="t-small">AsapSharp en <code>#0E1033</code>; hover rosa o verde, transición 150ms.</p>
+
+  <h3>Texto scroll “PROYECTOS”</h3>
+  <div class="marquee" role="img" aria-label="Texto decorativo en movimiento: Proyectos repetido"><div class="marquee-track" aria-hidden="true"><span>PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·&nbsp;</span><span>PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·&nbsp;</span></div></div>
+  <p class="t-small">Fondo <code>#ED2B5F</code>, texto <code>#F4F4F4</code> (4.11:1, válido como texto grande decorativo ≥ 3:1), ~30s lineal. Se pausa con <code>prefers-reduced-motion</code>.</p>
+</section>
+
+<section id="reglas" aria-labelledby="t-rules" class="reveal">
+  <span class="eyebrow">06 · Do's &amp; Don'ts</span>
+  <h2 id="t-rules">Lo permitido y lo prohibido</h2>
+  <div class="rules">
+    <div class="do">
+      <h3>✅ Sí</h3>
+      <ul>
+        <li><code>#0E1033</code> para cuerpo sobre fondos claros.</li>
+        <li><code>#D6D6D6</code> para cuerpo solo sobre <code>#0E1033</code>.</li>
+        <li>Verde y rosa solo como acentos gráficos.</li>
+        <li>AsapSharp en todo, títulos grandes como gráfico.</li>
+        <li>Aire generoso y animaciones suaves con propósito.</li>
+        <li>Contraste WCAG AA en toda lectura.</li>
+      </ul>
+    </div>
+    <div class="dont">
+      <h3>❌ No</h3>
+      <ul>
+        <li>Gris sobre blanco para párrafos.</li>
+        <li>Rosa o verde en textos de lectura.</li>
+        <li>Rosa en cuerpo, small o párrafos (4.11:1).</li>
+        <li>Todos los colores a la vez sin jerarquía.</li>
+        <li>Sombras fuertes o animaciones excesivas.</li>
+        <li>Cuerpo menor de 18px u otras tipografías.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Sistema de diseño · Referencia visual</strong> — Generada desde <code>DESIGN.md</code>. Fuente: <code>assets/fonts/AsapSharp-VariableFont.woff2</code>.</p>
+    <p class="t-small">Página responsiva y accesible: navegación por teclado, <code>prefers-reduced-motion</code> y pares texto/fondo con contraste seguro.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn');
+  var nav=document.getElementById('mainNav');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.getAttribute('data-copy');
+      if(navigator.clipboard){navigator.clipboard.writeText(v).then(function(){b.textContent='¡Copiado!';setTimeout(function(){b.textContent='Copiar';},1200);});}
+      else{b.textContent=v;}
+    });
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
