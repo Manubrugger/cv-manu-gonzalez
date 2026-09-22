@@ -40,7 +40,8 @@ body{
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--colors-primary);color:var(--colors-bg);padding:12px 20px;z-index:200;border-radius:0 0 8px 0;font-weight:700}
 .skip-link:focus{left:0}
 :focus-visible{outline:3px solid var(--colors-accent);outline-offset:3px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,48px);position:relative}
+.wrap > :not(.deco-sec){position:relative;z-index:1}
 section{scroll-margin-top:calc(var(--header-h) + 12px)}
 /* ---------- header ---------- */
 header.site{position:sticky;top:0;z-index:100;background:rgba(244,244,244,.97);border-bottom:2px solid var(--colors-primary)}
@@ -70,6 +71,15 @@ nav.main a:hover{color:var(--colors-accent);background:rgba(14,16,51,.07)}
 @keyframes drift1{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
 @keyframes drift2{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
 @keyframes spinFloat{0%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(180deg) translateY(-16px)}100%{transform:rotate(360deg) translateY(0)}}
+/* formas decorativas en todas las secciones */
+.deco-sec{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.deco-sec i{position:absolute;display:block}
+.d-pink-dot{width:30px;height:30px;background:var(--colors-accent);border-radius:50%;animation:drift1 8s ease-in-out infinite}
+.d-green-dot{width:22px;height:22px;background:var(--colors-secondary);border-radius:50%;animation:drift2 9s ease-in-out infinite}
+.d-pink-ring{width:90px;height:90px;background:transparent;border:12px solid var(--colors-accent);border-radius:50%;animation:drift2 12s ease-in-out infinite}
+.d-green-ring{width:70px;height:70px;background:transparent;border:10px solid var(--colors-secondary);border-radius:50%;animation:drift1 10s ease-in-out infinite}
+.d-green-pill{width:110px;height:36px;background:var(--colors-secondary);border-radius:9999px;animation:drift1 11s ease-in-out infinite}
+.d-pink-circle{width:140px;height:140px;background:var(--colors-accent);border-radius:50%;opacity:.9;animation:drift2 13s ease-in-out infinite}
 .role{font-size:var(--fs-headline);font-weight:500;margin:12px 0 0;color:var(--colors-neutral)}
 .photo{margin:0;display:flex;justify-content:center}
 .photo img{
@@ -165,6 +175,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
   .reveal{opacity:1;transform:none}
   .deco i{animation:none}
+  .deco-sec i{animation:none}
   .hwrap{height:auto}
   .hsticky{position:static;height:auto;display:block}
   .htrack{overflow-x:auto;width:auto;transform:none !important}
@@ -215,6 +226,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- SOBRE MÍ -->
   <section class="block" id="sobre-mi" aria-labelledby="t-sobre">
     <div class="wrap reveal">
+      <div class="deco-sec" aria-hidden="true"><i class="d-pink-ring" style="right:6%;top:24px"></i><i class="d-green-dot" style="left:8%;bottom:20px"></i></div>
       <h2 id="t-sobre">Diseño con propósito</h2>
       <p class="bio">Creo en el poder del diseño gráfico como una herramienta para generar soluciones creativas, explorar nuevos límites y aportar nuevas perspectivas a cada proyecto. Mi objetivo es transformar ideas en imágenes memorables y funcionales, buscando siempre un equilibrio entre estética y significado.</p>
     </div>
@@ -223,6 +235,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- EDUCACIÓN -->
   <section class="block" id="educacion" aria-labelledby="t-edu">
     <div class="wrap">
+      <div class="deco-sec" aria-hidden="true"><i class="d-green-pill" style="left:3%;top:20px"></i><i class="d-pink-dot" style="right:9%;bottom:16px"></i></div>
       <div class="reveal">
         <h2 id="t-edu">Formación</h2>
       </div>
@@ -244,6 +257,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- PROYECTOS -->
   <section id="proyectos" aria-labelledby="t-proy">
     <div class="wrap block reveal" style="padding-bottom:0">
+      <div class="deco-sec" aria-hidden="true"><i class="d-pink-circle" style="right:4%;top:8px"></i><i class="d-green-ring" style="left:5%;bottom:12px"></i></div>
       <h2 id="t-proy" style="color:var(--colors-accent)">Galería de proyectos</h2>
     </div>
     <div class="hwrap" id="hwrap">
@@ -284,6 +298,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- HABILIDADES -->
   <section class="block" id="habilidades" aria-labelledby="t-hab">
     <div class="wrap">
+      <div class="deco-sec" aria-hidden="true"><i class="d-green-dot" style="right:7%;top:22px"></i><i class="d-pink-ring" style="left:2%;bottom:16px"></i></div>
       <div class="reveal">
         <h2 id="t-hab">Programas y soft skills</h2>
       </div>
@@ -314,6 +329,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- CONTACTO -->
   <section class="block" id="contacto" aria-labelledby="t-contact">
     <div class="wrap reveal">
+      <div class="deco-sec" aria-hidden="true"><i class="d-pink-dot" style="left:9%;top:20px"></i><i class="d-green-ring" style="right:5%;bottom:14px"></i></div>
       <h2 id="t-contact">Cuéntame tu idea</h2>
       <p class="lead">Escríbeme por correo o encuéntrame en LinkedIn.</p>
       <div class="btn-row">
