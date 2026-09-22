@@ -63,23 +63,23 @@ nav.main a:hover{color:var(--colors-accent);background:rgba(14,16,51,.07)}
 /* prueba: formas decorativas dinámicas */
 .deco{position:absolute;inset:0;z-index:0;pointer-events:none}
 .deco i{position:absolute;display:block}
-.deco .c1{width:180px;height:180px;right:-50px;top:-50px;background:var(--colors-accent);border-radius:50%;opacity:.85;animation:drift1 9s ease-in-out infinite}
-.deco .c2{width:120px;height:120px;left:5%;bottom:-30px;background:transparent;border:14px solid var(--colors-secondary);border-radius:50%;animation:drift2 11s ease-in-out infinite}
-.deco .c3{width:44px;height:44px;left:44%;top:12%;background:var(--colors-secondary);border-radius:50%;animation:drift1 7s ease-in-out infinite reverse}
-.deco .c4{width:150px;height:44px;right:9%;bottom:10%;background:var(--colors-accent);border-radius:9999px;opacity:.9;animation:drift2 10s ease-in-out infinite}
-.deco .c5{width:26px;height:26px;right:33%;top:18%;background:var(--colors-secondary);border-radius:8px;animation:spinFloat 12s linear infinite}
-@keyframes drift1{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
-@keyframes drift2{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
-@keyframes spinFloat{0%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(180deg) translateY(-16px)}100%{transform:rotate(360deg) translateY(0)}}
+.deco .c1{width:180px;height:180px;right:-50px;top:-50px;background:var(--colors-accent);border-radius:50%;opacity:.85;animation:drift1 5s ease-in-out infinite}
+.deco .c2{width:120px;height:120px;left:5%;bottom:-30px;background:transparent;border:14px solid var(--colors-secondary);border-radius:50%;animation:drift2 6s ease-in-out infinite}
+.deco .c3{width:44px;height:44px;left:44%;top:12%;background:var(--colors-secondary);border-radius:50%;animation:drift1 4s ease-in-out infinite reverse}
+.deco .c4{width:150px;height:44px;right:9%;bottom:10%;background:var(--colors-accent);border-radius:9999px;opacity:.9;animation:drift2 5.5s ease-in-out infinite}
+.deco .c5{width:26px;height:26px;right:33%;top:18%;background:var(--colors-secondary);border-radius:8px;animation:spinFloat 7s linear infinite}
+@keyframes drift1{0%,100%{transform:translateY(0)}50%{transform:translateY(-56px)}}
+@keyframes drift2{0%,100%{transform:translateY(0)}50%{transform:translateY(48px)}}
+@keyframes spinFloat{0%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(180deg) translateY(-32px)}100%{transform:rotate(360deg) translateY(0)}}
 /* formas decorativas en todas las secciones */
 .deco-sec{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .deco-sec i{position:absolute;display:block}
-.d-pink-dot{width:30px;height:30px;background:var(--colors-accent);border-radius:50%;animation:drift1 8s ease-in-out infinite}
-.d-green-dot{width:22px;height:22px;background:var(--colors-secondary);border-radius:50%;animation:drift2 9s ease-in-out infinite}
-.d-pink-ring{width:90px;height:90px;background:transparent;border:12px solid var(--colors-accent);border-radius:50%;animation:drift2 12s ease-in-out infinite}
-.d-green-ring{width:70px;height:70px;background:transparent;border:10px solid var(--colors-secondary);border-radius:50%;animation:drift1 10s ease-in-out infinite}
-.d-green-pill{width:110px;height:36px;background:var(--colors-secondary);border-radius:9999px;animation:drift1 11s ease-in-out infinite}
-.d-pink-circle{width:140px;height:140px;background:var(--colors-accent);border-radius:50%;opacity:.9;animation:drift2 13s ease-in-out infinite}
+.d-pink-dot{width:30px;height:30px;background:var(--colors-accent);border-radius:50%;animation:drift1 4.5s ease-in-out infinite}
+.d-green-dot{width:22px;height:22px;background:var(--colors-secondary);border-radius:50%;animation:drift2 5s ease-in-out infinite}
+.d-pink-ring{width:64px;height:64px;background:transparent;border:10px solid var(--colors-accent);border-radius:50%;animation:drift2 6s ease-in-out infinite}
+.d-green-ring{width:56px;height:56px;background:transparent;border:8px solid var(--colors-secondary);border-radius:50%;animation:drift1 5.5s ease-in-out infinite}
+.d-green-pill{width:88px;height:30px;background:var(--colors-secondary);border-radius:9999px;animation:drift1 6s ease-in-out infinite}
+.d-pink-circle{width:100px;height:100px;background:var(--colors-accent);border-radius:50%;opacity:.9;animation:drift2 6.5s ease-in-out infinite}
 .role{font-size:var(--fs-headline);font-weight:500;margin:12px 0 0;color:var(--colors-neutral)}
 .photo{margin:0;display:flex;justify-content:center}
 .photo img{
@@ -161,6 +161,7 @@ footer p{margin:0;font-size:var(--fs-small)}
 /* ---------- responsive / motion ---------- */
 @media(max-width:760px){
   .menu-btn{display:inline-block}
+  .deco-sec{display:none}
   nav.main{display:none;width:100%}
   nav.main.open{display:block}
   nav.main ul{flex-direction:column;padding:8px 0 16px}
@@ -257,7 +258,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- PROYECTOS -->
   <section id="proyectos" aria-labelledby="t-proy">
     <div class="wrap block reveal" style="padding-bottom:0">
-      <div class="deco-sec" aria-hidden="true"><i class="d-pink-circle" style="right:4%;top:8px"></i><i class="d-green-ring" style="left:5%;bottom:12px"></i></div>
+      <div class="deco-sec" aria-hidden="true"><i class="d-pink-circle" style="right:4%;top:50%;margin-top:-50px"></i><i class="d-green-ring" style="right:24%;bottom:10px"></i></div>
       <h2 id="t-proy" style="color:var(--colors-accent)">Galería de proyectos</h2>
     </div>
     <div class="hwrap" id="hwrap">
@@ -298,7 +299,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- HABILIDADES -->
   <section class="block" id="habilidades" aria-labelledby="t-hab">
     <div class="wrap">
-      <div class="deco-sec" aria-hidden="true"><i class="d-green-dot" style="right:7%;top:22px"></i><i class="d-pink-ring" style="left:2%;bottom:16px"></i></div>
+      <div class="deco-sec" aria-hidden="true"><i class="d-green-dot" style="right:7%;top:22px"></i><i class="d-pink-ring" style="left:2%;bottom:4px"></i></div>
       <div class="reveal">
         <h2 id="t-hab">Programas y soft skills</h2>
       </div>
