@@ -41,7 +41,6 @@ body{
 .skip-link:focus{left:0}
 :focus-visible{outline:3px solid var(--colors-accent);outline-offset:3px}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,48px);position:relative}
-.wrap > :not(.deco-sec){position:relative;z-index:1}
 section{scroll-margin-top:calc(var(--header-h) + 12px)}
 /* ---------- header ---------- */
 header.site{position:sticky;top:0;z-index:100;background:rgba(244,244,244,.97);border-bottom:2px solid var(--colors-primary)}
@@ -60,26 +59,24 @@ nav.main a:hover{color:var(--colors-accent);background:rgba(14,16,51,.07)}
 @media(min-width:900px){.hero .wrap{grid-template-columns:.9fr 1.1fr;padding-top:72px;padding-bottom:72px}}
 .hero h1{font-size:var(--fs-display-large);line-height:var(--lh-tight);margin:0;letter-spacing:-.01em;color:var(--colors-neutral)}
 .hero h1 .hl{background:var(--colors-accent);color:var(--colors-primary);padding:0 12px;border-radius:var(--r-sm)}
-/* prueba: formas decorativas dinámicas */
-.deco{position:absolute;inset:0;z-index:0;pointer-events:none}
-.deco i{position:absolute;display:block}
-.deco .c1{width:180px;height:180px;right:-50px;top:-50px;background:var(--colors-accent);border-radius:50%;opacity:.85;animation:drift1 5s ease-in-out infinite}
-.deco .c2{width:120px;height:120px;left:5%;bottom:-30px;background:transparent;border:14px solid var(--colors-secondary);border-radius:50%;animation:drift2 6s ease-in-out infinite}
-.deco .c3{width:44px;height:44px;left:44%;top:12%;background:var(--colors-secondary);border-radius:50%;animation:drift1 4s ease-in-out infinite reverse}
-.deco .c4{width:150px;height:44px;right:9%;bottom:10%;background:var(--colors-accent);border-radius:9999px;opacity:.9;animation:drift2 5.5s ease-in-out infinite}
-.deco .c5{width:26px;height:26px;right:33%;top:18%;background:var(--colors-secondary);border-radius:8px;animation:spinFloat 7s linear infinite}
+/* capa global de formas: flotan por toda la página, detrás del contenido */
+.deco-global{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.deco-global i{position:absolute;display:block}
+main,footer{position:relative;z-index:2}
+.g1{width:120px;height:120px;left:3%;top:6%;background:var(--colors-accent);border-radius:50%;opacity:.9;animation:drift1 11s ease-in-out infinite}
+.g2{width:84px;height:84px;left:4%;top:36%;background:transparent;border:12px solid var(--colors-secondary);border-radius:50%;animation:drift2 8s ease-in-out infinite}
+.g3{width:26px;height:26px;left:6%;top:64%;background:var(--colors-accent);border-radius:50%;animation:drift1 6s ease-in-out infinite}
+.g4{width:110px;height:34px;left:2%;top:86%;background:var(--colors-secondary);border-radius:9999px;animation:drift2 9s ease-in-out infinite}
+.g5{width:90px;height:90px;right:3%;top:16%;background:var(--colors-secondary);border-radius:50%;opacity:.9;animation:drift2 10s ease-in-out infinite}
+.g6{width:72px;height:72px;right:4%;top:46%;background:transparent;border:10px solid var(--colors-accent);border-radius:50%;animation:drift1 7s ease-in-out infinite}
+.g7{width:22px;height:22px;right:6%;top:70%;background:var(--colors-secondary);border-radius:50%;animation:drift1 5.5s ease-in-out infinite}
+.g8{width:120px;height:36px;right:2%;top:88%;background:var(--colors-accent);border-radius:9999px;opacity:.9;animation:drift2 9.5s ease-in-out infinite}
+.g9{width:54px;height:54px;left:10%;top:24%;background:transparent;border:8px solid var(--colors-accent);border-radius:50%;animation:drift2 7.5s ease-in-out infinite}
+.g10{width:28px;height:28px;right:10%;top:58%;background:var(--colors-secondary);border-radius:50%;animation:drift1 6.5s ease-in-out infinite}
 @keyframes drift1{0%,100%{transform:translateY(0)}50%{transform:translateY(-56px)}}
 @keyframes drift2{0%,100%{transform:translateY(0)}50%{transform:translateY(48px)}}
 @keyframes spinFloat{0%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(180deg) translateY(-32px)}100%{transform:rotate(360deg) translateY(0)}}
-/* formas decorativas en todas las secciones */
-.deco-sec{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.deco-sec i{position:absolute;display:block}
-.d-pink-dot{width:30px;height:30px;background:var(--colors-accent);border-radius:50%;animation:drift1 4.5s ease-in-out infinite}
-.d-green-dot{width:22px;height:22px;background:var(--colors-secondary);border-radius:50%;animation:drift2 5s ease-in-out infinite}
-.d-pink-ring{width:64px;height:64px;background:transparent;border:10px solid var(--colors-accent);border-radius:50%;animation:drift2 6s ease-in-out infinite}
-.d-green-ring{width:56px;height:56px;background:transparent;border:8px solid var(--colors-secondary);border-radius:50%;animation:drift1 5.5s ease-in-out infinite}
-.d-green-pill{width:88px;height:30px;background:var(--colors-secondary);border-radius:9999px;animation:drift1 6s ease-in-out infinite}
-.d-pink-circle{width:100px;height:100px;background:var(--colors-accent);border-radius:50%;opacity:.9;animation:drift2 6.5s ease-in-out infinite}
+/* (las formas viven en la capa global .deco-global) */
 .role{font-size:var(--fs-headline);font-weight:500;margin:12px 0 0;color:var(--colors-neutral)}
 .photo{margin:0;display:flex;justify-content:center}
 .photo img{
@@ -161,7 +158,10 @@ footer p{margin:0;font-size:var(--fs-small)}
 /* ---------- responsive / motion ---------- */
 @media(max-width:760px){
   .menu-btn{display:inline-block}
-  .deco-sec{display:none}
+  .deco-global .g4,.deco-global .g8,.deco-global .g9,.deco-global .g10{display:none}
+  .deco-global .g1{width:70px;height:70px}
+  .deco-global .g5{width:56px;height:56px}
+  .deco-global .g6{width:48px;height:48px}
   nav.main{display:none;width:100%}
   nav.main.open{display:block}
   nav.main ul{flex-direction:column;padding:8px 0 16px}
@@ -175,8 +175,7 @@ footer p{margin:0;font-size:var(--fs-small)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
   .reveal{opacity:1;transform:none}
-  .deco i{animation:none}
-  .deco-sec i{animation:none}
+  .deco-global i{animation:none}
   .hwrap{height:auto}
   .hsticky{position:static;height:auto;display:block}
   .htrack{overflow-x:auto;width:auto;transform:none !important}
@@ -185,6 +184,7 @@ footer p{margin:0;font-size:var(--fs-small)}
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="deco-global" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><i class="g4"></i><i class="g5"></i><i class="g6"></i><i class="g7"></i><i class="g8"></i><i class="g9"></i><i class="g10"></i></div>
 
 <header class="site">
   <div class="wrap nav-inner">
@@ -205,7 +205,6 @@ footer p{margin:0;font-size:var(--fs-small)}
 <main id="contenido">
   <!-- HERO -->
   <section class="hero" id="inicio" aria-labelledby="t-hero">
-    <div class="deco" aria-hidden="true"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><i class="c5"></i></div>
     <div class="wrap">
       <figure class="photo reveal" style="margin:0">
         <img src="assets/imagenes/perfil.jpg" alt="Fotografía de Manú González" fetchpriority="high">
@@ -227,7 +226,6 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- SOBRE MÍ -->
   <section class="block" id="sobre-mi" aria-labelledby="t-sobre">
     <div class="wrap reveal">
-      <div class="deco-sec" aria-hidden="true"><i class="d-pink-ring" style="right:6%;top:24px"></i><i class="d-green-dot" style="left:8%;bottom:20px"></i></div>
       <h2 id="t-sobre">Diseño con propósito</h2>
       <p class="bio">Creo en el poder del diseño gráfico como una herramienta para generar soluciones creativas, explorar nuevos límites y aportar nuevas perspectivas a cada proyecto. Mi objetivo es transformar ideas en imágenes memorables y funcionales, buscando siempre un equilibrio entre estética y significado.</p>
     </div>
@@ -236,7 +234,6 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- EDUCACIÓN -->
   <section class="block" id="educacion" aria-labelledby="t-edu">
     <div class="wrap">
-      <div class="deco-sec" aria-hidden="true"><i class="d-green-pill" style="left:3%;top:20px"></i><i class="d-pink-dot" style="right:9%;bottom:16px"></i></div>
       <div class="reveal">
         <h2 id="t-edu">Formación</h2>
       </div>
@@ -258,7 +255,6 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- PROYECTOS -->
   <section id="proyectos" aria-labelledby="t-proy">
     <div class="wrap block reveal" style="padding-bottom:0">
-      <div class="deco-sec" aria-hidden="true"><i class="d-pink-circle" style="right:4%;top:50%;margin-top:-50px"></i><i class="d-green-ring" style="right:24%;bottom:10px"></i></div>
       <h2 id="t-proy" style="color:var(--colors-accent)">Galería de proyectos</h2>
     </div>
     <div class="hwrap" id="hwrap">
@@ -299,7 +295,6 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- HABILIDADES -->
   <section class="block" id="habilidades" aria-labelledby="t-hab">
     <div class="wrap">
-      <div class="deco-sec" aria-hidden="true"><i class="d-green-dot" style="right:7%;top:22px"></i><i class="d-pink-ring" style="left:2%;bottom:4px"></i></div>
       <div class="reveal">
         <h2 id="t-hab">Programas y soft skills</h2>
       </div>
@@ -330,7 +325,6 @@ footer p{margin:0;font-size:var(--fs-small)}
   <!-- CONTACTO -->
   <section class="block" id="contacto" aria-labelledby="t-contact">
     <div class="wrap reveal">
-      <div class="deco-sec" aria-hidden="true"><i class="d-pink-dot" style="left:9%;top:20px"></i><i class="d-green-ring" style="right:5%;bottom:14px"></i></div>
       <h2 id="t-contact">Cuéntame tu idea</h2>
       <p class="lead">Escríbeme por correo o encuéntrame en LinkedIn.</p>
       <div class="btn-row">
